@@ -1,0 +1,12 @@
+ProxyTickets:
+  SQL:
+  - 'localhost'
+  - '3306'
+  - 'Database'
+  - 'Username'
+  - 'Password'
+  TablePrefix: ''
+  Messages:
+    TimeFormat: dd.MM.yyyy HH:mm:ss
+  TicketList:
+    TicketsPerPage: 5

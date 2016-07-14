@@ -1,0 +1,59 @@
+command.nopermission: 'You don't have permission to use this command'
+command.noplayer: 'You have to be a player to use this command'
+command.invalidnumber: '%number% is not a valid number'
+
+ticket.created.success: 'Your ticket has been successfully created with ID #%id%%newMessage%A staff member will take care of it as soon as possible'
+ticket.created.teaminfo: '%author% created a new ticket with id #%id%%newMessage%%text%'
+
+ticket.list.noopen: 'There are no open tickets'
+ticket.list.wrongpage: 'There are only %pages% pages of tickets to look at'
+ticket.list.header: 'Page %page% of %maxPage% (%showing% of %open% open tickets)'
+ticket.list.entry.0: '#%id% - %author% - %created% - Open%newMessage%%text%'
+ticket.list.entry.1: '#%id% - %author% - %created% - Claimed by %claimedBy%%newMessage%%text%'
+ticket.list.entry.2: '#%id% - %author% - %created% - Closed by %claimedBy%%newMessage%%text%%newMessage%Answer (by %claimedBy%): %answer%'
+ticket.list.footer: ''
+
+ticket.notexists: 'The ticket #%id% does not exist'
+ticket.0: '#%id% - %author% - %created% - Open%newMessage%%text%'
+ticket.1: '#%id% - %author% - %created% - Claimed by %claimedBy%%newMessage%%text%'
+ticket.2: '#%id% - %author% - %created% - Closed by %claimedBy%%newMessage%%text%%newMessage%Answer (by %claimedBy%): %answer%'
+
+ticket.comments.nocomments: 'There are no comments for ticket #%id%'
+ticket.comments.header: 'Comments for ticket #%id%:'
+ticket.comments.entry: '%commentAuthor% (%commentCreated%): %commentText%'
+ticket.comments.footer: ''
+
+ticket.claim.success: 'You are now working on ticket #%id%'
+ticket.claim.userinfo: '%player% is now working on your ticket #%id%'
+ticket.claim.teaminfo: '%player% is now working on ticket #%id%'
+ticket.claim.onlyopen: 'You can only claim open tickets'
+
+ticket.unclaim.success: 'You are no longer working on ticket #%id%'
+ticket.unclaim.userinfo: '%player% is no longer working on your ticket #%id%'
+ticket.unclaim.teaminfo: '%player% is no longer working on ticket #%id%'
+ticket.unclaim.onlyclaimed: 'You can only unclaim claimed tickets'
+ticket.unclaim.onlyown: 'You can only unclaim tickets you claimed'
+
+ticket.close.success: 'You successfully closed ticket #%id%: %answer%'
+ticket.close.success.withoutanswer: 'You successfully closed ticket #%id%'
+ticket.close.userinfo: '%player% closed your ticket #%id%: %answer%'
+ticket.close.userinfo.withoutanswer: '%player% closed your ticket #%id%'
+ticket.close.teaminfo: '%player% closed ticket #%id%: %answer%'
+ticket.close.teaminfo.withoutanswer: '%player% closed ticket #%id%'
+ticket.close.onlyown: 'You can only close tickets you claimed'
+
+ticket.comment.success: 'You successfully commented on ticket #%id%: %commentText%'
+ticket.comment.info: '%commentAuthor% commented on ticket #%id%: %commentText%'
+ticket.comment.onlyown: 'You can only comment on your own tickets'
+
+ticket.purge.requestsuccess.all: 'You have successfully filed a request to purge all tickets. Use '/tickets purge confirm' to confirm your request and purge all tickets'
+ticket.purge.requestsuccess.closed: 'You have successfully filed a request to purge all closed tickets. Use '/tickets purge confirm' to confirm your request and purge all closed tickets'
+ticket.purge.alreadyrequested: 'You already have a purge request open. Use '/tickets purge confirm' to confirm the request'
+ticket.purge.success: 'The database has successfully been purged'
+ticket.purge.norequest: 'You have no pending purge request. Use '/tickets purge [all|closed]' to create a purge request'
+
+ticket.comments.unread: 'You have %amount% unread messages'
+ticket.comments.entry: 'Ticket #%id%: %commentAuthor%: %commentText% (%commentCreated%)'
+
+command.usage.ticket: 'Use '/ticket [text]' to create a ticket'
+command.usage.tickets: '/tickets claim <id>%newMessage%/tickets unclaim <id>%newMessage%/tickets close <id> [message]%newMessage%/tickets tp <id>%newMessage%/tickets comments <id>%newMessage%/tickets comment <id> <message>%newMessage%/tickets purge [all|closed]'

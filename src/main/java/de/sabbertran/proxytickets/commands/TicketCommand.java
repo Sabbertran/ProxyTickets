@@ -34,7 +34,8 @@ public class TicketCommand extends Command {
             } else {
                 main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage("command.noplayer"));
             }
+        } else {
+            main.getPermissionHandler().sendMissingPermissionInfo(sender);
         }
-
     }
 }

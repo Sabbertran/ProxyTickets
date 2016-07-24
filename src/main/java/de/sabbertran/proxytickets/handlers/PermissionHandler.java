@@ -32,7 +32,7 @@ public class PermissionHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        p.getServer().sendData("ProxyTicketss", b.toByteArray());
+        p.getServer().sendData("ProxyTickets", b.toByteArray());
     }
 
     public void readAvailablePermissionsFromFile() {

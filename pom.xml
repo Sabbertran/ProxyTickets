@@ -6,7 +6,7 @@
 
     <groupId>de.sabbertran.proxytickets</groupId>
     <artifactId>ProxyTickets</artifactId>
-    <version>1.0.1s</version>
+    <version>1.0.2</version>
 
     <repositories>
         <!-- BungeeCord repository -->

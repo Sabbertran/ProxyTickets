@@ -74,6 +74,7 @@ public class ProxyTickets extends Plugin {
         commandHandler.registerCommands();
         ticketHandler.loadOpenTickets();
         messageHandler.readMessagesFromFile();
+        permissionHandler.readAvailablePermissionsFromFile();
 
         getProxy().getPluginManager().registerListener(this, new Events(this));
         getProxy().registerChannel("ProxyTickets");
@@ -94,13 +95,17 @@ public class ProxyTickets extends Plugin {
     }
 
     public void setupDatabase() {
-        try {
-            Statement st = getSQLConnection().createStatement();
-            st.execute("CREATE TABLE IF NOT EXISTS " + tablePrefix + "players (uuid CHAR(36) NOT NULL, name VARCHAR(16) NOT NULL, blockedUntil TIMESTAMP NULL, UNIQUE (uuid))");
-            st.execute("CREATE TABLE IF NOT EXISTS " + tablePrefix + "tickets (id INT NOT NULL AUTO_INCREMENT, player CHAR(36) NOT NULL, status INT NOT NULL DEFAULT 0, created TIMESTAMP NOT NULL, server VARCHAR(256) NOT NULL, world VARCHAR(256) NOT NULL, x DOUBLE NOT NULL, y DOUBLE NOT NULL, z DOUBLE NOT NULL, pitch DOUBLE NOT NULL, yaw DOUBLE NOT NULL, text TEXT NOT NULL, claimedBy VARCHAR(256) NULL, answer TEXT NULL, PRIMARY KEY (id), FOREIGN KEY (player) REFERENCES " + tablePrefix + "players (uuid), FOREIGN KEY (claimedBy) REFERENCES " + tablePrefix + "players (uuid))");
-            st.execute("CREATE TABLE IF NOT EXISTS " + tablePrefix + "comments (id INT NOT NULL AUTO_INCREMENT, ticket INT NOT NULL, player CHAR(36) NOT NULL, date TIMESTAMP NOT NULL, text TEXT NOT NULL, server VARCHAR(256) NOT NULL, world VARCHAR(256) NOT NULL, x DOUBLE NOT NULL, y DOUBLE NOT NULL, z DOUBLE NOT NULL, pitch DOUBLE NOT NULL, yaw DOUBLE NOT NULL, isread BOOLEAN NOT NULL, PRIMARY KEY (id), FOREIGN KEY (ticket) REFERENCES " + tablePrefix + "tickets (id), FOREIGN KEY (player) REFERENCES " + tablePrefix + "players (uuid))");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (sql != null && sql.size() == 5 && !sql.get(4).equals("Password")) {
+            try {
+                Statement st = getSQLConnection().createStatement();
+                st.execute("CREATE TABLE IF NOT EXISTS " + tablePrefix + "players (uuid CHAR(36) NOT NULL, name VARCHAR(16) NOT NULL, blockedUntil TIMESTAMP NULL, UNIQUE (uuid))");
+                st.execute("CREATE TABLE IF NOT EXISTS " + tablePrefix + "tickets (id INT NOT NULL AUTO_INCREMENT, player CHAR(36) NOT NULL, status INT NOT NULL DEFAULT 0, created TIMESTAMP NOT NULL, server VARCHAR(256) NOT NULL, world VARCHAR(256) NOT NULL, x DOUBLE NOT NULL, y DOUBLE NOT NULL, z DOUBLE NOT NULL, pitch DOUBLE NOT NULL, yaw DOUBLE NOT NULL, text TEXT NOT NULL, claimedBy VARCHAR(256) NULL, answer TEXT NULL, PRIMARY KEY (id), FOREIGN KEY (player) REFERENCES " + tablePrefix + "players (uuid), FOREIGN KEY (claimedBy) REFERENCES " + tablePrefix + "players (uuid))");
+                st.execute("CREATE TABLE IF NOT EXISTS " + tablePrefix + "comments (id INT NOT NULL AUTO_INCREMENT, ticket INT NOT NULL, player CHAR(36) NOT NULL, date TIMESTAMP NOT NULL, text TEXT NOT NULL, server VARCHAR(256) NOT NULL, world VARCHAR(256) NOT NULL, x DOUBLE NOT NULL, y DOUBLE NOT NULL, z DOUBLE NOT NULL, pitch DOUBLE NOT NULL, yaw DOUBLE NOT NULL, isread BOOLEAN NOT NULL, PRIMARY KEY (id), FOREIGN KEY (ticket) REFERENCES " + tablePrefix + "tickets (id), FOREIGN KEY (player) REFERENCES " + tablePrefix + "players (uuid))");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            getLogger().info("Error while setting up the SQL Connection! Please check you SQL data!");
         }
     }
 

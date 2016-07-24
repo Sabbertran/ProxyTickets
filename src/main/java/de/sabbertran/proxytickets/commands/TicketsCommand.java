@@ -334,7 +334,6 @@ public class TicketsCommand extends Command {
                 } else
                     main.getPermissionHandler().sendMissingPermissionInfo(sender);
             } else if (args[0].equalsIgnoreCase("comment")) {
-                //TODO isread beim login auslesen und nachricht senden
                 if (main.getPermissionHandler().hasPermission(sender, "proxytickets.tickets.comment")) {
                     if (sender instanceof ProxiedPlayer) {
                         final ProxiedPlayer p = (ProxiedPlayer) sender;
@@ -396,9 +395,7 @@ public class TicketsCommand extends Command {
             } else {
                 main.getCommandHandler().sendUsage(sender, this);
             }
-        } else
-
-        {
+        } else {
             main.getCommandHandler().sendUsage(sender, this);
         }
     }

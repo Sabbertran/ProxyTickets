@@ -346,7 +346,7 @@ public class TicketsCommand extends Command {
                             final CachedPlayer player = main.getCachedPlayerHandler().getCachedPlayer(sender);
                             if (main.getTicketHandler().isLoadedTicket(id)) {
                                 final Ticket t = main.getTicketHandler().getTicket(id);
-                                if (t.getPlayer().equals(player) || main.getPermissionHandler().hasPermission(sender, "proxytickets.ticket.comment.others")) {
+                                if (t.getPlayer().equals(player) || main.getPermissionHandler().hasPermission(sender, "proxytickets.tickets.comment.others")) {
                                     main.getPositionHandler().requestPosition(p);
                                     main.getPositionHandler().addPositionRunnable(p, new Runnable() {
                                         public void run() {
@@ -365,7 +365,7 @@ public class TicketsCommand extends Command {
                                     public void run() {
                                         final Ticket t = main.getTicketHandler().getTicket(id);
                                         if (t != null) {
-                                            if (t.getPlayer().equals(player) || main.getPermissionHandler().hasPermission(sender, "proxytickets.ticket.comment.others")) {
+                                            if (t.getPlayer().equals(player) || main.getPermissionHandler().hasPermission(sender, "proxytickets.tickets.comment.others")) {
                                                 main.getPositionHandler().requestPosition(p);
                                                 main.getPositionHandler().addPositionRunnable(p, new Runnable() {
                                                     public void run() {

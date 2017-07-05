@@ -301,7 +301,7 @@ public class TicketsCommand extends Command {
                                 main.getMessageHandler().sendMessage(sender, main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.success"), t));
                                 ProxiedPlayer creator = t.getPlayer().getBungeePlayer();
                                 if (creator != null)
-                                    main.getMessageHandler().sendMessage(sender, main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.userinfo"), t).replace("%player%", sender.getName()));
+                                    main.getMessageHandler().sendMessage(creator, main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.userinfo"), t).replace("%player%", sender.getName()));
 
                                 main.getMessageHandler().sendMessageWithPermission(main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.teaminfo"), t).replace("%player%", sender.getName()), "proxytickets.tickets.close.receiveteaminfo");
                             } else {
@@ -317,7 +317,7 @@ public class TicketsCommand extends Command {
                                             main.getMessageHandler().sendMessage(sender, main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.success"), t));
                                             ProxiedPlayer creator = t.getPlayer().getBungeePlayer();
                                             if (creator != null)
-                                                main.getMessageHandler().sendMessage(sender, main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.userinfo"), t).replace("%player%", sender.getName()));
+                                                main.getMessageHandler().sendMessage(creator, main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.userinfo"), t).replace("%player%", sender.getName()));
                                             main.getMessageHandler().sendMessageWithPermission(main.getTicketHandler().translateTicketVariables(main.getMessageHandler().getMessage("ticket.close.teaminfo"), t).replace("%player%", sender.getName()), "proxytickets.tickets.close.receiveteaminfo");
                                         } else {
                                             main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage("ticket.close.onlyown"));

@@ -6,7 +6,6 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
-import org.mcstats.Metrics;
 
 import java.io.*;
 import java.sql.Connection;
@@ -79,13 +78,6 @@ public class ProxyTickets extends Plugin {
         getProxy().getPluginManager().registerListener(this, new Events(this));
         getProxy().registerChannel("ProxyTickets");
         getProxy().getPluginManager().registerListener(this, new PMessageListener(this));
-
-        try {
-            Metrics metrics = new Metrics(this);
-            metrics.start();
-        } catch (IOException e) {
-            // Failed to submit the stats :-(
-        }
 
         getLogger().info(getDescription().getName() + " " + getDescription().getVersion() + " by " + getDescription().getAuthor() + " enabled");
     }
